@@ -1,3 +1,10 @@
+/**
+ * The backend for the application.
+ *
+ * Runs the web server and serves as middleware
+ * for calls to the Geneea API.
+ */
+
 const path = require('path')
 const https = require('https')
 
@@ -15,14 +22,14 @@ app.get('/', (_, res) => {
 })
 
 app.post('/geneea_middleware', (req, res) => {
-  console.log(req.body)
-
+  // Request body.
   const data = {
     id: 1,
     text: req.body.text,
     analyses: ['entities']
   }
 
+  // Request meta-information.
   const options = {
     hostname: 'api.geneea.com',
     path: '/v3/analysis',
@@ -34,21 +41,22 @@ app.post('/geneea_middleware', (req, res) => {
     }
   }
 
-  const r = https.request(options, response => {
-    console.log(`statusCode: ${response.statusCode}`)
-
-    response.on('data', d => {
-      process.stdout.write(d)
+  // Make a request to the Geneea API.
+  const APIRequest = https.request(options, APIResponse => {
+    APIResponse.on('data', d => {
       res.send(d)
+    })
+    APIResponse.on('error', err => {
+      console.error(err)
     })
   })
 
-  r.on('error', error => {
+  APIRequest.on('error', error => {
     console.error(error)
   })
 
-  r.write(JSON.stringify(data))
-  r.end()
+  APIRequest.write(JSON.stringify(data))
+  APIRequest.end()
 })
 
 app.listen(port, () => { console.log('App running.') })

@@ -2,6 +2,7 @@ import React from 'react'
 
 import {EntitiesTable} from './entities-table.js'
 
+
 /**
  * This is the root component of the signle-page application.
  */

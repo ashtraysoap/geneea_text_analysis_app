@@ -1,0 +1,12 @@
+table {
+    margin: 1.5vw;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+tbody tr:hover {
+    background-color: cadetblue;
+}
+
+td {
+    padding-right: 2vw;
+}

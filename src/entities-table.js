@@ -1,5 +1,8 @@
 import React from 'react'
 
+import style from './assets/styles.css'
+
+
 /**
  * This component displays the entities returned from the Geneea API.
  */

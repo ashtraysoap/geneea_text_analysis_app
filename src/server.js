@@ -7,11 +7,11 @@ const app = express()
 const port = process.env.PORT || 5000
 const accessKey = 'user_key ba0d8598e8acaa705ea7d1fd42fd6554'
 
-app.use(express.static('public/dist'))
+app.use(express.static('dist'))
 app.use(express.json())
 
 app.get('/', (_, res) => {
-  res.sendFile(path.join(__dirname, '/../public/index.html'))
+  res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
 app.post('/geneea_middleware', (req, res) => {

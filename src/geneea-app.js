@@ -1,7 +1,6 @@
 import React from 'react'
 
-import {EntitiesTable} from './entities-table.js'
-
+import { EntitiesTable } from './entities-table.js'
 
 /**
  * This is the root component of the signle-page application.
@@ -14,7 +13,7 @@ export class GeneeaSimpleTextAnalysisApp extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this)
 
     this.state = {
-      text: "Enter some text to analyze.",
+      text: 'Enter some text to analyze.',
       entities: null
     }
   }

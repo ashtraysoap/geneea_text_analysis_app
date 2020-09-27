@@ -10,7 +10,7 @@ class GeneeaSimpleTextAnalysisApp extends React.Component {
 
     this.state = {
       text: "J'ai oublie mon cahier.",
-      entities: []
+      entities: null
     }
   }
 
@@ -57,6 +57,12 @@ function SubmitButton (props) {
 }
 
 function EntitiesTable (props) {
+  // Initial state - no results to show.
+  if (props.entities === null) { return null }
+
+  // No entities detected.
+  if (props.entities.length === 0) { return <div>No entities detected.</div> }
+
   const entities = props.entities.map(e => {
     return (
       <tr key={e.id}>
@@ -66,8 +72,6 @@ function EntitiesTable (props) {
       </tr>
     )
   })
-
-  if (entities.length === 0) { return null }
 
   return (
     <table>

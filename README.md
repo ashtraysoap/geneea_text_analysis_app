@@ -1,4 +1,4 @@
-# Geneea Text Analysis Task Solution
+# Geneea Text Analysis App
 
 The application is deployed on Heroku at <https://stark-castle-85560.herokuapp.com/>
 
